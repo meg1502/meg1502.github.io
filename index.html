@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend Mentor Showcase | meg1502</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>Frontend Mentor Showcase</h1>
+            <p class="subtitle">A collection of my frontend coding challenges & solutions.</p>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div id="project-grid" class="project-grid">
+                <!-- Projects will be injected here -->
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Built by <a href="https://github.com/meg1502" target="_blank">meg1502</a></p>
+        </div>
+    </footer>
+
+    <script>
+        const projects = [
+            {
+                name: "Meet Landing Page",
+                repo: "meet-landing-page",
+                live: "https://meet-landing-page-blue.vercel.app",
+                image: "screenshot.jpg"
+            },
+            {
+                name: "Testimonials Grid Section",
+                repo: "testimonials-grid-section",
+                live: "https://testimonials-grid-section-eight-ecru.vercel.app",
+                image: "screenshot.png"
+            },
+            {
+                name: "Article Preview Component",
+                repo: "article-preview-component",
+                live: "https://article-preview-component-mu-ten.vercel.app",
+                image: "https://github.com/user-attachments/assets/378a86cc-fde5-473a-8721-b8b1aedded5e"
+            },
+            {
+                name: "Recipe Page",
+                repo: "recipe-page-main",
+                live: "https://recipe-page-main-lake-omega.vercel.app",
+                image: "solution-screenshot.png"
+            },
+            {
+                name: "Four Card Feature Section",
+                repo: "four-card-feature-section",
+                live: "https://four-card-feature-section-jet-gamma.vercel.app",
+                image: "screenshot.jpg"
+            },
+            {
+                name: "QR Code Component",
+                repo: "qr-code-component-main",
+                live: "https://qr-code-component-main-rho-nine.vercel.app",
+                image: "preview.jpg"
+            },
+            {
+                name: "Product Preview Card",
+                repo: "product-preview-card-component-main",
+                live: "https://product-preview-card-component-main-azure-kappa.vercel.app",
+                image: "design/desktop-preview.jpg"
+            },
+            {
+                name: "Social Links Profile",
+                repo: "social-links-profile-main",
+                live: "https://social-links-profile-main-iota-indol.vercel.app",
+                image: "preview.jpg"
+            },
+            {
+                name: "Blog Preview Card",
+                repo: "blog-preview-card-main",
+                live: "https://blog-preview-card-main-two-topaz.vercel.app",
+                image: "preview.jpg"
+            }
+        ];
+
+        const grid = document.getElementById('project-grid');
+
+        projects.forEach(project => {
+            // Construct Image URL
+            let imageUrl = project.image;
+            if (!imageUrl.startsWith('http')) {
+                imageUrl = `https://raw.githubusercontent.com/meg1502/${project.repo}/main/${project.image}`;
+            }
+
+            // Create Card Element
+            const card = document.createElement('article');
+            card.className = 'project-card';
+
+            card.innerHTML = `
+                <a href="${project.live}" target="_blank" class="card-image-link">
+                    <img src="${imageUrl}" alt="${project.name} Preview" loading="lazy">
+                </a>
+                <div class="card-content">
+                    <h2><a href="${project.live}" target="_blank">${project.name}</a></h2>
+                    <div class="card-links">
+                        <a href="${project.live}" target="_blank" class="btn btn-primary">View Live</a>
+                        <a href="https://github.com/meg1502/${project.repo}" target="_blank" class="btn btn-secondary">View Code</a>
+                    </div>
+                </div>
+            `;
+
+            grid.appendChild(card);
+        });
+    </script>
+</body>
+</html>
