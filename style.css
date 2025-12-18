@@ -1,0 +1,185 @@
+:root {
+    --bg-color: #0f1115;
+    --card-bg: #1c1f26;
+    --text-primary: #ffffff;
+    --text-secondary: #a0a4b0;
+    --accent-color: #3e54a3;
+    --accent-hover: #536dc6;
+    --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+    --container-width: 1200px;
+    --transition: 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: var(--font-main);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+}
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+header {
+    padding: 80px 0 40px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    background: linear-gradient(135deg, #fff 0%, #a0a4b0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+/* Grid */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    padding: 40px 0 80px;
+}
+
+/* Cards */
+.project-card {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: transform var(--transition), box-shadow var(--transition);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.card-image-link {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16/9; /* Enforce standard aspect ratio */
+    overflow: hidden;
+    background-color: #2a2e38; /* Placeholder color while loading */
+}
+
+.project-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top; /* Often important for website screenshots */
+    transition: transform 0.5s ease;
+}
+
+.project-card:hover img {
+    transform: scale(1.05);
+}
+
+.card-content {
+    padding: 24px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-content h2 {
+    font-size: 1.25rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.card-content h2 a:hover {
+    color: var(--accent-hover);
+}
+
+/* Buttons */
+.card-links {
+    margin-top: auto; /* Push to bottom */
+    display: flex;
+    gap: 12px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-align: center;
+    flex: 1;
+}
+
+.btn-primary {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-hover);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--text-primary);
+}
+
+.btn-secondary:hover {
+    border-color: var(--text-primary);
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Footer */
+footer {
+    padding: 40px 0;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+footer a {
+    color: var(--text-primary);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+footer a:hover {
+    color: var(--accent-hover);
+}
+
+/* Mobile Tweaks */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+}
